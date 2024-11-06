@@ -1,0 +1,1 @@
+Aqui esta los datos en formato csv, asegurar la ubicacion de los archivos csv dentro del Script 3 para subir los datos.
