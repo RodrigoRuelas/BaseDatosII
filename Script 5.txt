@@ -1,0 +1,83 @@
+Procedimiento 1. Realizar Ventas
+IF OBJECT_ID('ventas.RealizarCompra', 'P') IS NOT NULL
+    DROP PROCEDURE ventas.RealizarCompra;
+
+GO
+
+CREATE PROCEDURE ventas.RealizarCompra (
+    @numComprobante INT,
+    @tipoComprobante NVARCHAR(50),
+    @fechaCompra DATE,
+    @idCliente INT,
+    @IGV DECIMAL(5, 2),
+    @Descuento DECIMAL(5, 2),
+    
+    -- Datos de los productos
+    @idProducto1 INT, @cantidad1 INT,
+    @idProducto2 INT, @cantidad2 INT,
+    @idProducto3 INT, @cantidad3 INT
+)
+AS
+BEGIN
+    BEGIN TRANSACTION;
+    BEGIN TRY
+        -- Paso 1: Registrar la compra en la tabla Compra
+        DECLARE @idCompra INT;
+        INSERT INTO ventas.Compra (numComprobante, tipoComprobante, fechaCompra, idCliente, IGV, Descuento)
+        VALUES (@numComprobante, @tipoComprobante, @fechaCompra, @idCliente, @IGV, @Descuento);
+
+        SET @idCompra = SCOPE_IDENTITY();
+
+        -- Paso 2: Insertar los detalles de la compra en DetalleCompra
+        INSERT INTO ventas.DetalleCompra (idCompra, idProducto, Cantidad)
+        VALUES 
+            (@idCompra, @idProducto1, @cantidad1),
+            (@idCompra, @idProducto2, @cantidad2),
+            (@idCompra, @idProducto3, @cantidad3);
+
+        -- Paso 3: Registrar una salida en la tabla Salida para cada producto
+        DECLARE @fechaSalida DATE = @fechaCompra;
+        
+        INSERT INTO productos.Salida (idProducto, fechaSalida, cantidadSalida)
+        VALUES 
+            (@idProducto1, @fechaSalida, @cantidad1),
+            (@idProducto2, @fechaSalida, @cantidad2),
+            (@idProducto3, @fechaSalida, @cantidad3);
+
+        -- Paso 4: Actualizar el stock en la tabla Inventario para cada producto
+        UPDATE productos.Inventario
+        SET Stock = Stock - @cantidad1
+        WHERE idProducto = @idProducto1;
+
+        UPDATE productos.Inventario
+        SET Stock = Stock - @cantidad2
+        WHERE idProducto = @idProducto2;
+
+        UPDATE productos.Inventario
+        SET Stock = Stock - @cantidad3
+        WHERE idProducto = @idProducto3;
+
+        -- Confirmar la transacción
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        -- Si hay algún error, deshacer la transacción
+        ROLLBACK TRANSACTION;
+        THROW;
+    END CATCH;
+END;
+
+GO
+
+EXEC ventas.RealizarCompra 
+    @numComprobante = 1001,                 -- Número de comprobante de la compra
+    @tipoComprobante = 'Nota',           -- Tipo de comprobante (por ejemplo, 'Factura', 'Boleta')
+    @fechaCompra = '2024-11-04',            -- Fecha de la compra
+    @idCliente = 1,                         -- ID del cliente que realiza la compra
+    @IGV = 18.00,                           -- IGV (Impuesto General a las Ventas) en porcentaje
+    @Descuento = 5.00,                      -- Descuento aplicado a la compra en porcentaje
+
+    -- Productos y cantidades
+    @idProducto1 = 1, @cantidad1 = 2,     -- Primer producto y cantidad comprada
+    @idProducto2 = 2, @cantidad2 = 1,     -- Segundo producto y cantidad comprada
+    @idProducto3 = 3, @cantidad3 = 3;     -- Tercer producto y cantidad comprada
