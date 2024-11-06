@@ -1,0 +1,96 @@
+-- Tabla Cliente
+CREATE TABLE clientes.Cliente (
+    idCliente INT IDENTITY(1,1) PRIMARY KEY,
+    Direccion1 NVARCHAR(100),
+    Direccion2 NVARCHAR(100),
+    Telefono NVARCHAR(20)
+)ON FG_Clientes;
+
+-- Tabla Natural
+CREATE TABLE clientes.Natural (
+    idCliente INT PRIMARY KEY,
+    DNI NVARCHAR(8) NOT NULL,
+    Nombre NVARCHAR(100),
+    ApellidoP NVARCHAR(100),
+    ApellidoM NVARCHAR(100),
+    CONSTRAINT FK_Natural_Cliente FOREIGN KEY (idCliente) REFERENCES clientes.Cliente(idCliente)
+)ON FG_Clientes;
+
+-- Tabla Empresa
+CREATE TABLE clientes.Empresa (
+    idCliente INT PRIMARY KEY,
+    RUC NVARCHAR(11) NOT NULL,
+    RazonSocial NVARCHAR(100),
+    CONSTRAINT FK_Empresa_Cliente FOREIGN KEY (idCliente) REFERENCES clientes.Cliente(idCliente)
+)ON FG_Clientes;
+GO
+
+-- Tabla Categoría
+CREATE TABLE productos.Categoria (
+    idCategoria INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre NVARCHAR(100),
+    Descripcion NVARCHAR(255)
+)ON FG_Productos;
+
+-- Tabla Producto
+CREATE TABLE productos.Producto (
+    idProducto INT IDENTITY(1,1) PRIMARY KEY,
+    codeProducto NVARCHAR(10),
+    nombreProducto NVARCHAR(100),
+    Tipo NVARCHAR(10),
+    Descripcion NVARCHAR(255),
+    idCategoria INT,
+    precioUnitario DECIMAL(10, 2),
+    CONSTRAINT FK_Producto_Categoria FOREIGN KEY (idCategoria) REFERENCES productos.Categoria(idCategoria)
+)ON FG_Productos;
+
+-- Tabla Entrada
+CREATE TABLE productos.Entrada (
+    idEntrada INT IDENTITY(1,1) PRIMARY KEY,
+    idProducto INT,
+    fechaEntrada DATE,
+    cantidadEntrada INT,
+    CONSTRAINT FK_Producto_Entrada FOREIGN KEY (idProducto) REFERENCES productos.Producto(idProducto)
+)ON FG_Productos;
+
+-- Tabla Salida
+CREATE TABLE productos.Salida (
+    idSalida INT IDENTITY(1,1) PRIMARY KEY,
+    idProducto INT,
+    fechaSalida DATE,
+    cantidadSalida INT,
+    CONSTRAINT FK_Producto_Salida FOREIGN KEY (idProducto) REFERENCES productos.Producto(idProducto)
+)ON FG_Productos;
+
+-- Tabla Inventario
+CREATE TABLE productos.Inventario (
+    idZonaInventario NVARCHAR(10) PRIMARY KEY,
+    idProducto INT,
+    Stock INT,
+    PRIMARY KEY (idProducto, idEntrada, idSalida),
+    CONSTRAINT FK_Inventario_Producto FOREIGN KEY (idProducto) REFERENCES productos.Producto(idProducto)
+)ON FG_Productos;
+GO
+
+-- Tabla Compra
+CREATE TABLE ventas.Compra (
+    idCompra INT IDENTITY(1,1) PRIMARY KEY,
+    numComprobante INT,
+    tipoComprobante NVARCHAR(50),
+    fechaCompra DATE,
+    idCliente INT,
+    IGV DECIMAL(5, 2),
+    Descuento DECIMAL(5, 2),
+    CONSTRAINT FK_Comprobante_Cliente FOREIGN KEY (idCliente) REFERENCES clientes.Cliente(idCliente)
+)ON FG_Ventas;
+
+-- Tabla DetalleCompra
+CREATE TABLE ventas.DetalleCompra (
+    idCompra INT,
+    idProducto INT,
+    Cantidad INT,
+    PRIMARY KEY (idCompra, idProducto),
+    CONSTRAINT FK_DetalleCompra_Compra FOREIGN KEY (idCompra) REFERENCES ventas.Compra(idCompra),
+    CONSTRAINT FK_DetalleCompra_Producto FOREIGN KEY (idProducto) REFERENCES productos.Producto(idProducto)
+)ON FG_Ventas;
+
