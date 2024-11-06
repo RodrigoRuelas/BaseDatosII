@@ -1,0 +1,59 @@
+-- Carga de Datos por csv
+-- NOTA: Se brindara los archivos csv correspondientes con la información de las tablas
+-- Se debe tener en cuenta en que lugar de nuestra computadora están dichos archivos csv
+
+-- Para insertar datos clientes.Cliente
+BULK INSERT clientes.Cliente
+FROM 'D:\DatosBD\Datos Clientes.csv'
+WITH (
+	FIELdTERMINATOR = ';',
+	ROWTERMINATOR = '\n'
+)
+
+-- Para insertar datos clientes.Natural
+BULK INSERT clientes.Natural
+FROM 'D:\DatosBD\Datos Clientes Naturales.csv'
+WITH (
+	FIELdTERMINATOR = ';',
+	ROWTERMINATOR = '\n'
+)
+
+-- Para insertar datos clientes.Empresa
+BULK INSERT clientes.Empresa
+FROM 'D:\DatosBD\Datos Clientes Empresa.csv'
+WITH (
+	FIELdTERMINATOR = ';',
+	ROWTERMINATOR = '\n'
+)
+
+-- Para insertar datos productos.Categoria
+BULK INSERT productos.Categoria
+FROM 'D:\DatosBD\Datos Categorias.csv'
+WITH (
+	FIELdTERMINATOR = ';',
+	ROWTERMINATOR = '\n'
+)
+
+-- Para insertar datos productos.Producto
+BULK INSERT productos.Producto
+FROM 'D:\DatosBD\Datos Productos.csv'
+WITH (
+	FIELdTERMINATOR = ';',
+	ROWTERMINATOR = '\n'
+)
+
+-- Para insertar datos productos.Entrada
+BULK INSERT productos.Entrada
+FROM 'D:\DatosBD\Datos Entrada.csv'
+WITH (
+	FIELdTERMINATOR = ';',
+	ROWTERMINATOR = '\n'
+)
+
+-- Para insertar datos productos.Inventario
+BULK INSERT productos.Inventario
+FROM 'D:\DatosBD\Datos Inventario.csv'
+WITH (
+	FIELdTERMINATOR = ';',
+	ROWTERMINATOR = '\n'
+)
