@@ -1,0 +1,50 @@
+1;Calle del Sol 123, Ciudad del Norte, C.P. 11001;;956473892
+2;Av. Independencia 456, Colonia Centro, Ciudad del Este, C.P. 22002;;945783921
+3;Calle de la Luna 789, Ciudad Jardín, C.P. 33003;;963548210
+4;Av. Reforma 101, Barrio Central, Ciudad del Sur, C.P. 44004;;932478965
+5;Calle Libertad 202, Residencial Los Olivos, Ciudad del Oeste, C.P. 55005;;987654123
+6;Av. de la Amistad 303, Sector Industrial, Ciudad del Norte, C.P. 66006;;956789431
+7;Calle del Bosque 404, Zona Verde, Ciudad Jardín, C.P. 77007;;964321789
+8;Av. de la Paz 505, Barrio de las Flores, Ciudad del Este, C.P. 88008;;912345678
+9;Calle Principal 606, Centro Histórico, Ciudad del Sur, C.P. 99009;;973561489
+10;Av. Central 707, Colonia Nueva, Ciudad del Oeste, C.P. 10101;;947852163
+11;Calle del Río 808, Zona Alta, Ciudad del Norte, C.P. 11111;;958471236
+12;Av. de la Montaña 909, Ciudad Jardín, C.P. 12121;;965478132
+13;Calle Nueva 1001, Residencial La Primavera, Ciudad del Este, C.P. 13131;;954873291
+14;Av. Progreso 1112, Barrio Los Pinos, Ciudad del Sur, C.P. 14141;;946123789
+15;Calle Unión 1213, Sector Comercial, Ciudad del Oeste, C.P. 15151;;938475612
+16;Av. del Campo 1314, Colonia Agricultores, Ciudad del Norte, C.P. 16161;;974561238
+17;Calle de los Cedros 1415, Zona Boscosa, Ciudad Jardín, C.P. 17171;;956471283
+18;Av. Bella Vista 1516, Colonia Nueva, Ciudad del Este, C.P. 18181;;985471236
+19;Calle Real 1617, Ciudadela, Ciudad del Sur, C.P. 19191;;964712839
+20;Av. Libertador 1718, Sector Industrial, Ciudad del Oeste, C.P. 20202;;912345987
+21;Calle Paz 1819, Zona Norte, Ciudad del Norte, C.P. 21212;;987452130
+22;Av. San Martín 1920, Ciudad Jardín, C.P. 22222;;956784231
+23;Calle Hermosa 2021, Colonia Alta, Ciudad del Este, C.P. 23232;;974523681
+24;Av. de los Andes 2122, Barrio Antiguo, Ciudad del Sur, C.P. 24242;;945671823
+25;Calle Paloma 2223, Zona Comercial, Ciudad del Oeste, C.P. 25252;;963487521
+26;Av. Principal 2324, Centro Histórico, Ciudad del Norte, C.P. 26262;Calle del Lago 100, Barrio Azul, Ciudad del Norte, C.P. 51010;932478651
+27;Calle Valle 2425, Sector Moderno, Ciudad Jardín, C.P. 27272;Av. Horizonte 200, Residencial El Faro, Ciudad del Este, C.P. 52020;947582136
+28;Av. de la Luz 2526, Colonia Sol, Ciudad del Este, C.P. 28282;Calle Palmeras 300, Colonia Bella, Ciudad Jardín, C.P. 53030;965478132
+29;Calle Dorada 2627, Barrio Sur, Ciudad del Sur, C.P. 29292;Av. de los Ángeles 400, Barrio Las Flores, Ciudad del Sur, C.P. 54040;953682471
+30;Av. del Mar 2728, Zona Costera, Ciudad del Oeste, C.P. 30303;Calle Mirador 500, Colonia del Sol, Ciudad del Oeste, C.P. 55050;984712365
+31;Calle Colina 2829, Sector Alto, Ciudad del Norte, C.P. 31313;Av. Montaña 600, Barrio Alto, Ciudad del Norte, C.P. 56060;971234568
+32;Av. Horizonte 2930, Ciudad Jardín, C.P. 32323;Calle Aurora 700, Residencial La Paz, Ciudad del Este, C.P. 57070;958412736
+33;Calle Rosa 3031, Barrio Las Rosas, Ciudad del Este, C.P. 33333;Av. Manantial 800, Zona Laguna, Ciudad Jardín, C.P. 58080;963741852
+34;Av. Primavera 3132, Colonia Bosques, Ciudad del Sur, C.P. 34343;Calle Bosque 900, Barrio Verde, Ciudad del Sur, C.P. 59090;972345689
+35;Calle Larga 3233, Sector Llano, Ciudad del Oeste, C.P. 35353;Av. Luz 1001, Sector Nuevo, Ciudad del Oeste, C.P. 60101;956128473
+36;Av. Sol 3334, Barrio Central, Ciudad del Norte, C.P. 36363;Calle del Prado 1100, Colonia Jardines, Ciudad del Norte, C.P. 61111;987436512
+37;Calle del Amanecer 3435, Ciudad Jardín, C.P. 37373;Av. Sur 1200, Residencial Altos, Ciudad del Este, C.P. 62121;974856123
+38;Av. Paz 3536, Colonia Nueva Esperanza, Ciudad del Este, C.P. 38383;Calle Armonía 1300, Barrio Silencio, Ciudad Jardín, C.P. 63131;912547836
+39;Calle Estrella 3637, Zona Este, Ciudad del Sur, C.P. 39393;Av. Rayo 1400, Zona Luminosa, Ciudad del Sur, C.P. 64141;983641257
+40;Av. Luna 3738, Sector Industrial, Ciudad del Oeste, C.P. 40404;Calle del Cielo 1500, Colonia Paraíso, Ciudad del Oeste, C.P. 65151;956347812
+41;Calle Arenal 3839, Barrio Alto, Ciudad del Norte, C.P. 41414;Av. Libertad 1600, Barrio del Sol, Ciudad del Norte, C.P. 66161;945673182
+42;Av. Esperanza 3940, Ciudad Jardín, C.P. 42424;Calle Encanto 1700, Sector Estrella, Ciudad del Este, C.P. 67171;976543218
+43;Calle La Paz 4041, Colonia Libertad, Ciudad del Este, C.P. 43434;Av. Tranquilidad 1800, Zona Valle, Ciudad Jardín, C.P. 68181;954128763
+44;Av. Verde 4142, Sector Verde, Ciudad del Sur, C.P. 44444;Calle Esperanza 1900, Residencial Las Nubes, Ciudad del Sur, C.P. 69191;973251468
+45;Calle del Pino 4243, Zona Norte, Ciudad del Oeste, C.P. 45454;Av. del Rio 2001, Colonia Marina, Ciudad del Oeste, C.P. 70202;985674312
+46;Av. de los Álamos 4344, Residencial Arboleda, Ciudad del Norte, C.P. 46464;Calle Serena 2100, Barrio Oeste, Ciudad del Norte, C.P. 71212;912837564
+47;Calle Alameda 4445, Ciudad Jardín, C.P. 47474;Av. Pinos 2200, Sector Bosques, Ciudad del Este, C.P. 72222;948271536
+48;Av. Valle 4546, Barrio Las Colinas, Ciudad del Este, C.P. 48484;Calle Brisa 2300, Barrio Las Colinas, Ciudad Jardín, C.P. 73232;967134258
+49;Calle La Playa 4647, Sector Costero, Ciudad del Sur, C.P. 49494;Av. Paz 2400, Colonia de la Paz, Ciudad del Sur, C.P. 74242;932548176
+50;Av. Tranquila 4748, Zona Sur, Ciudad del Oeste, C.P. 50505;Calle Cristal 2500, Zona Norte, Ciudad del Oeste, C.P. 75252;947136285
