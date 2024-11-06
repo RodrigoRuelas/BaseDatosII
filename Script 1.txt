@@ -1,0 +1,70 @@
+-- Creando la base de datos
+CREATE DATABASE PatitasConEstilo
+
+GO
+
+-- Usando la base de datos creada
+USE PatitasConEstilo
+
+GO
+
+-- Agregar filegroup para las ventas
+ALTER DATABASE PatitasConEstilo
+ADD FILEGROUP FG_Ventas;
+
+-- Agregar filegroup para los productos (inventario)
+ALTER DATABASE PatitasConEstilo 
+ADD FILEGROUP FG_Productos;
+
+-- Agregar filegroup para los clientes
+ALTER DATABASE PatitasConEstilo
+ADD FILEGROUP FG_Clientes;
+
+GO
+
+-- Agregar archivo físico para las ventas
+ALTER DATABASE PatitasConEstilo
+ADD FILE (
+    NAME = 'VentasFile', 
+    FILENAME = 'D:\Data\VentasFile.ndf', 
+    SIZE = 5MB, 
+    MAXSIZE = 100MB, 
+    FILEGROWTH = 5MB) 
+TO FILEGROUP FG_Ventas;
+GO
+
+-- Agregar archivo físico para los productos (inventario)
+ALTER DATABASE PatitasConEstilo
+ADD FILE (
+    NAME = 'ProductosFile', 
+    FILENAME = 'D:\Data\ProductosFile.ndf', 
+    SIZE = 5MB, 
+    MAXSIZE = 100MB, 
+    FILEGROWTH = 5MB) 
+TO FILEGROUP FG_Productos;
+GO
+
+-- Agregar archivo físico para los clientes
+ALTER DATABASE PatitasConEstilo
+ADD FILE (
+    NAME = 'ClientesFile', 
+    FILENAME = 'D:\Data\ClientesFile.ndf', 
+    SIZE = 5MB, 
+    MAXSIZE = 100MB, 
+    FILEGROWTH = 5MB) 
+TO FILEGROUP FG_Clientes;
+
+GO
+
+-- Creando esquemas
+CREATE SCHEMA clientes
+GO
+CREATE SCHEMA ventas
+GO
+CREATE SCHEMA productos
+GO
+CREATE SCHEMA administrador
+
+
+
+
