@@ -1,0 +1,61 @@
+-- 1. Consulta para mostrar todos los datos de los clientes naturales
+SELECT 
+    c.idCliente,
+    c.Direccion1,
+    c.Direccion2,
+    c.Telefono,
+    n.DNI,
+    n.Nombre,
+    n.ApellidoP,
+    n.ApellidoM
+FROM 
+    clientes.Cliente c
+INNER JOIN 
+    clientes.Natural n ON c.idCliente = n.idCliente;
+
+-- 2. Consulta para Mostrar todos los datos de los clientes empresa
+SELECT 
+    c.idCliente,
+    c.Direccion1,
+    c.Direccion2,
+    c.Telefono,
+    e.RUC,
+    e.RazonSocial
+FROM 
+    clientes.Cliente c
+INNER JOIN 
+    clientes.Empresa e ON c.idCliente = e.idCliente;
+
+-- 3. Consulta para mostrar todos los productos para perros
+SELECT 
+    idProducto,
+    codeProducto,
+    nombreProducto,
+    Tipo,
+    Descripcion,
+    idCategoria,
+    precioUnitario
+FROM 
+    productos.Producto
+WHERE 
+    Tipo = 'Perros';
+
+-- 4. Subconsulta para mostrar los productos que no tienen salida
+SELECT p.nombreProducto, i.Stock
+FROM productos.Producto p
+JOIN productos.Inventario i ON p.idProducto = i.idProducto
+WHERE i.idProducto NOT IN (
+    SELECT idProducto
+    FROM productos.Salida
+    GROUP BY idProducto
+);
+
+-- 5. Subconsulta para consultar productos con un precio unitario superior al precio promedio de su categoría
+SELECT p.nombreProducto, p.precioUnitario, c.Nombre AS Categoria
+FROM productos.Producto p
+INNER JOIN productos.Categoria c ON p.idCategoria = c.idCategoria
+WHERE p.precioUnitario > (
+    SELECT AVG(precioUnitario)
+    FROM productos.Producto
+    WHERE idCategoria = p.idCategoria
+);
